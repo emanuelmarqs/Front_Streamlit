@@ -1,6 +1,7 @@
 import numpy
 import streamlit as st
 import matplotlib.pyplot as plt
+from pathlib import Path
 import pandas as pd
 
 st.title('meu primeiro dashboard')
@@ -21,8 +22,8 @@ elif opcao == 'Corinthias':
 else: 
     st.error('voce é um perdedor')
 
-
-caminho = "C:\\Users\\emanu\\OneDrive\\Área de Trabalho\\IBMEC\\2° Semestre\\Ciência de Dados I\\Projetos\\FrontEnd\\Aula1\\data\\ibov.csv"
+caminho = Path(__file__).resolve().parent / "data" / "ibov.csv"
+# caminho = "C:\\Users\\emanu\\OneDrive\\Área de Trabalho\\IBMEC\\2° Semestre\\Ciência de Dados I\\Projetos\\FrontEnd\\Aula1\\data\\ibov.csv"
 #df = pd.read_csv(caminho + "\\ibov.csv")
 df = pd.read_csv(caminho)
 st.dataframe(df)
